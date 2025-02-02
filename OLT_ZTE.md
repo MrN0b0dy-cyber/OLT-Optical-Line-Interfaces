@@ -20,13 +20,13 @@ Obs*: usar derivados pare filtrar
 
 ## Ver configurações de ONU ON ZTE C300 family
 
-    $Primeira parte da conf
+    Primeira parte da conf:
     >show running-config interface gpon-onu_1/S/P:ID
-    	
-    $Segunda parte da conf
+      
+    Segunda parte da conf:
     >show onu running config gpon-onu_1/S/P:ID
 
-    $Ver ID's na pon
+    Ver ID's na pon:
     >show gpon onu baseinfo gpon-onu_1/S/P:ID
 
 
@@ -77,30 +77,14 @@ Obs*: usar derivados pare filtrar
 
 
 #SNMP
+    
+      snmp-server location Mato Grosso
+      snmp-server contact +55 XXXXXXXXX
+      snmp-server packetsize 8192
+      snmp-server engine-id mode mac
+      snmp-server community prtggpon view AllView ro
+      snmp-server community community_NAME view allview rw
 
-
-  snmp-server location Mato Grosso
-  snmp-server contact +55 XXXXXXXXX
-  snmp-server packetsize 8192
-  snmp-server engine-id mode mac
-  snmp-server group GroupPriv15 v3 priv read AllView write AllView
-  snmp-server group GroupPriv10 v3 priv read AllView write ViewPriv10
-  snmp-server group GroupPriv5 v3 priv read AllView write ViewPriv5
-  snmp-server group GroupPriv0 v3 priv read AllView
-  snmp-server community prtggpon view AllView ro
-  snmp-server community community_NAME view allview rw
-  snmp-server view AllView 1.2 included
-  snmp-server view AllView 1.3 included
-  snmp-server view allview 1.3 included
-  snmp-server view ViewPriv5 1.2 included
-  snmp-server view ViewPriv5 1.3 included
-  snmp-server view ViewPriv5 1.3.6.1.4.1.3902.1082.10.1 excluded
-  snmp-server view ViewPriv5 1.3.6.1.4.1.3902.1082.10.10 excluded
-  snmp-server view ViewPriv5 1.3.6.1.4.1.3902.1082.20.1 excluded
-  snmp-server view ViewPriv5 1.3.6.1.4.1.3902.1082.20.10 excluded
-  snmp-server view ViewPriv10 1.2 included
-  snmp-server view ViewPriv10 1.3 included
-  snmp-server view ViewPriv10 1.3.6.1.4.1.3902.1082.20.10 excluded
 
 
 
@@ -109,7 +93,6 @@ Obs*: usar derivados pare filtrar
   ntp server IP_NTP_SERVER priority 1
   ntp enable
   ntp client
-
 
 
 
@@ -151,7 +134,7 @@ Obs*: usar derivados pare filtrar
 
       conf t
       interface gpon-olt_1/S/P
-      onu ID type F680 sn SERIAL_NUMBER
+      onu ID type XXXX sn SERIAL_NUMBER
       exit
       interface gpon-onu_1/S/P:ID
       description DESCRIPTION
@@ -185,12 +168,12 @@ Obs*: usar derivados pare filtrar
 
 ## ZTE C600(TITAN) MODE:
 
-#Configuração bridge com duas Vlans:  
+Configuração bridge com duas Vlans:  
 
     enable
     conf t
     interface gpon_olt-1/S/P
-    onu ID type F680 sn SERIAL_NUMBER
+    onu ID type XXXX sn SERIAL_NUMBER
     exit
     interface gpon_onu-1/S/P:ID
     name PPPOE_USERNAME
@@ -213,11 +196,11 @@ Obs*: usar derivados pare filtrar
 
 
 
-    #Configuração ROUTER
+Configuração ROUTER
 
     configure terminal
     interface gpon_olt-1/S/P
-    onu ID type F6600 sn SERIAL_NUMBER
+    onu ID type XXXX sn SERIAL_NUMBER
     exit
     interface gpon_onu-1/S/P:ID
     description PPPOE_USERNAME
@@ -235,11 +218,11 @@ Obs*: usar derivados pare filtrar
     wan-ip ipv4 mode pppoe username PPPOE_USERNAME password PPPOE_PASSWORD vlan-profile VLAN_ID host 1
     security-mgmt 1 state enable ingress-type lan protocol web #Libera WEB
     security-mgmt 2 state enable mode forward protocol web     #Libera WEB
-    security-mgmt 2 start-src-ip 177.67.192.0 end-src-ip 177.67.192.254 #libera prefix
+    security-mgmt 2 start-src-ip x.x.x.x end-src-ip x.x.x.254 #LIBERA
     security-mgmt 3 state enable mode forward protocol web
-    security-mgmt 3 start-src-ip 10.0.0.0 end-src-ip 10.254.254.254     #libera prefix
+    security-mgmt 3 start-src-ip x.x.x.x end-src-ip x.x.x.254 #LIBERA
     security-mgmt 4 state enable mode forward protocol web
-    security-mgmt 4 start-src-ip 177.36.32.1 end-src-ip 177.36.47.254   #libera prefix
+    security-mgmt 4 start-src-ip x.x.x.x end-src-ip x.x.x.254 #LIBERA
     firewall enable level low
     end
     write
