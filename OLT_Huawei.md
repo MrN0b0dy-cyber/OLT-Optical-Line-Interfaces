@@ -40,7 +40,7 @@ adicionar badnwidth controle
 >dba-profile add profile-id 100 profile-name "Profile-1G" type4 max 1024000
 
 
->ont-srvprofile gpon profile-id 50 profile-name "NOME_PROFILE"
+ont-srvprofile gpon profile-id 50 profile-name "NOME_PROFILE"
 	  ont-port pots adaptive 32 eth adaptive 8
 	  port vlan eth 1 translation 50 user-vlan 50
 	  port vlan eth 1 translation 30 user-vlan 30
