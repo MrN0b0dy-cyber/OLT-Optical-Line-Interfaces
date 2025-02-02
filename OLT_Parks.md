@@ -1,4 +1,4 @@
-#Comandos Gerais:
+# Comandos Gerais:
 
 ## Ver configurações exceto da GPON:
 >show running-config -gpon
