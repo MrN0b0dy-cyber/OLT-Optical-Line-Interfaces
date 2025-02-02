@@ -13,7 +13,7 @@ List ONU on inteface:
 
 
 ## Provisioning an ONU on bridge mode:
-
+     *Consultar antes um numero de ID para a porta que não exista e service port
      *obs: remove the ""
      
      conf t
