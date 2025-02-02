@@ -3,11 +3,14 @@
 ## Ver configurações exceto da GPON:
 >show running-config -gpon
 
+# Listar não provisionadas:
+>show gpon unprovisioned-onu
 
-#Adicionar ONU na pon:
->conf t
->interface gpon1/1
->onu add serial-number prks00bxxxxxx
+# Adicionar ONU na pon:
+	
+ 	conf t
+	interface gpon1/1
+	onu add serial-number prks00bxxxxxx
 
 
 ## Consultar Blacklist:
@@ -15,22 +18,22 @@
 
 ## Remover Blacklist
 *Localize a interface que está com ONU duplicada, entre nela e delete
->conf t
->interface gponS/P
->no blacklist serial-number prksxxxxxx
->end
+conf t
+interface gponS/P
+no blacklist serial-number prksxxxxxx
+end
 
-#Ver serial da ONU e informações:
+# Ver serial da ONU e informações:
 >show gpon onu prks00bxxxxxx summary
 
-#Ver Profiles na ONU e IP:
+# Ver Profiles na ONU e IP:
 >show gpon onu prks00bxxxxxx
 
-#Adicionar IP na ONU:
+# Adicionar IP na ONU:
 dentro de config/interface
 >onu prks00bxxxxxx ip address A.B.C.D/M
 
-#Porta com vlans em trunk
+# Porta com vlans em trunk
 
 **ALERTA, toda vez que adicionar uma vlan jogar todas existentes junto, pois irá sobrescrever**
 
@@ -43,14 +46,14 @@ dentro de config/interface
 	 switchport trunk allowed vlan 3,42-43,75,154
 	 no shutdown
 
-#Configurar NTP:
+# Configurar NTP:
 >ntp server IP_NTP_SERVER
 
-#Configurar SNMP:
+# Configurar SNMP:
 >snmp-server community community_NOME rw
 >snmp-server enable traps snmp
 
-#Configurar profiles:
+# Configurar profiles:
 Controle de banda: 
 	
 	gpon profile bandwidth PROFILE_NOME_1GIGA
@@ -79,7 +82,7 @@ Vlan translation profiles:
 
 
 
-#Provisionar a ONU Bridge: 
+# Provisionar a ONU Bridge: 
 
 	*ATIVAR PRKS*
 	show gpon onu prks###### summary
@@ -92,7 +95,7 @@ Vlan translation profiles:
 	copy running startup-config 
 
 
-#Provisionar a ONU Router: 
+# Provisionar a ONU Router: 
 	
 	 onu prks00xxxxx alias XXXXXXX
 	 onu prks00xxxxx ethernet-profile auto-on uni-port 1-2
