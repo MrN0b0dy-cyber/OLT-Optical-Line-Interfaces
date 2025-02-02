@@ -37,20 +37,20 @@ Profile com 2 vlan 50 e 30 passando em todas portas da ONU:
 
 adicionar badnwidth controle
 
->dba-profile add profile-id 100 profile-name "Profile-1G" type4 max 1024000
+dba-profile add profile-id 100 profile-name "Profile-1G" type4 max 1024000
 
 
 ont-srvprofile gpon profile-id 50 profile-name "NOME_PROFILE"
-	  ont-port pots adaptive 32 eth adaptive 8
-	  port vlan eth 1 translation 50 user-vlan 50
-	  port vlan eth 1 translation 30 user-vlan 30
-	  port vlan eth 2 translation 50 user-vlan 50
-	  port vlan eth 2 translation 30 user-vlan 30
-	  port vlan eth 3 translation 50 user-vlan 50
-	  port vlan eth 3 translation 30 user-vlan 30
-	  port vlan eth 4 translation 50 user-vlan 50
-	  port vlan eth 4 translation 30 user-vlan 30
-	  commit
+ont-port pots adaptive 32 eth adaptive 8
+port vlan eth 1 translation 50 user-vlan 50
+port vlan eth 1 translation 30 user-vlan 30
+port vlan eth 2 translation 50 user-vlan 50
+port vlan eth 2 translation 30 user-vlan 30
+port vlan eth 3 translation 50 user-vlan 50
+port vlan eth 3 translation 30 user-vlan 30
+port vlan eth 4 translation 50 user-vlan 50
+port vlan eth 4 translation 30 user-vlan 30
+commit
 	  quit
 
 
