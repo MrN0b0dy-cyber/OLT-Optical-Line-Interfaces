@@ -1,37 +1,37 @@
 
-# Comandos Gerais
+# Comandos Gerais:
 ## Nomear a OLT
 >sysname NOME_OLT
 
 
-## Ver configurações da OLT
+## Ver configurações da OLT:
 >display current-configuration
 
 
-## Ver log ONU
+## Ver log ONU:
 >config
 >inteface gpon FRAME/SLOT
 >display ont register-info PORTA ID
 
 
-## Ver não provisionadas
+## Ver não provisionadas:
 >display ont autofind all
 
 
-## Ver ID's na pon 
+## Ver ID's na pon:
 >display ont F S P all
 
-## Ver ONU pelo serial
+## Ver ONU pelo serial:
 >display ont info by-sn SERIAL	
 
 
 
-## Ver profiles
+## Ver profiles:
 >display ont-lineprofile gpon all
 >display ont-srvprofile gpon all
 
 
-## Configurar profiles
+## Configurar profiles:
 	
 	Profile com 2 vlan 50 e 30 passando em todas portas da ONU:
 	
@@ -63,14 +63,14 @@
 
 
 
-## Criar VLAN 
+## Criar VLAN:
 
 >vlan 30 smart 
 >vlan name 30 VLAN_DADOS_30
 >commit
 
 
-## Passar vlan na portas
+## Passar vlan na portas:
 
 >port vlan 30 0/6 0   #Frame/Slot PORTA
 >commit
