@@ -1,6 +1,6 @@
 
 # Comandos Gerais:
-## Nomear a OLT
+## Nomear a OLT:
 >sysname NOME_OLT
 
 
